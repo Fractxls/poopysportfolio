@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractxls' Roblox Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <div class="main-container">
+        <header>
+            <img id="discord-logo" src="Images/DiscordPFP.png" alt="Discord Logo">
+            <h1>Fractxls' Development Portfolio</h1>
+            <p class="subtitle">Roblox Game Developer</p>
+            <div id="social-links">
+                <a href="https://discord.com/users/1066787862638502021" target="_blank">
+                    <img src="images/DiscordIcon.svg" alt="Discord" class="social-icon">
+                </a>
+                <a href="https://www.roblox.com/users/1807184628/profile" target="_blank">
+                    <img src="images/RobloxIcon.svg" alt="Roblox" class="social-icon">
+                </a>
+            </div>
+        </header>
+
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div id="skills-container"></div>
+        </section>
+
+        <section id="commissions">
+            <h2>Completed Commissions</h2>
+            <div id="commissions-container"></div>
+            <button id="load-more-commissions">Load More</button>
+            <button id="show-less-commissions" style="display: none;">Show Less</button>
+        </section>
+        
+        <section id="previouswork">
+            <h2>My Previous Work</h2>
+            <div id="previous-filters">
+                <select id="category-filter" class="dropdown-filter">
+                    <option value="all">All Categories</option>
+                </select>
+                <select id="type-filter" class="dropdown-filter">
+                    <option value="all">All Types</option>
+                </select>
+            </div>
+            <div id="previous-container"></div>
+            <button id="load-more-previous">Load More</button>
+            <button id="show-less-previous" style="display: none;">Show Less</button>
+        </section>
+
+        <footer id="contact-info">
+            <p class="copyright">&copy; <span id="current-year"></span> Fractxls. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+            </div>
+            <img id="modal-logo" src="" alt="Commission Logo">
+            <div class="modal-info">
+                <p id="modal-payout"></p>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="background.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
