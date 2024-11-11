@@ -5,10 +5,13 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const dots = [];
-const numDots = 500;
 const maxDistance = 100;
 
+const dotDensity = 0.0005; 
+let numDots = Math.floor(canvas.width * canvas.height * dotDensity);
+
 function createDots() {
+    dots.length = 0;
     for (let i = 0; i < numDots; i++) {
         dots.push({
             x: Math.random() * canvas.width,
@@ -26,11 +29,9 @@ function updateDots() {
         dot.x += dot.vx;
         dot.y += dot.vy;
 
-        // Bounce off edges
         if (dot.x < 0 || dot.x > canvas.width) dot.vx *= -1;
         if (dot.y < 0 || dot.y > canvas.height) dot.vy *= -1;
 
-        // Draw connecting lines
         for (let j = i + 1; j < dots.length; j++) {
             const dist = Math.hypot(dot.x - dots[j].x, dot.y - dots[j].y);
             if (dist < maxDistance) {
@@ -48,6 +49,8 @@ function updateDots() {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    numDots = Math.floor(canvas.width * canvas.height * dotDensity);
+    createDots();
 });
 
 createDots();
