@@ -1,4 +1,3 @@
-// Skills data
 const skills = [
     { name: "Roblox Building", description: "Advanced proficiency in Low & High Poly Roblox building themes." },
     { name: "Roblox UI Design", description: "Learning low-poly/medium-poly Graphical User Interface Design." },
@@ -6,34 +5,29 @@ const skills = [
     { name: "Clothing Designer", description: "Learning/Indermediate Clothing Designer for the Roblox Platform.." },
 ];
 
-// Tags system
 const categories = {
     'Building': ['Low-Poly', 'High-Poly', 'Environmental Design'],
     'Scripting': ['Luau', 'Menu', 'Database', 'User Interface'],
     'UI Design': ['Low-Poly UI', 'Medium-Poly UI'],
     'Clothing Design': ['Staff Shirts', 'Plain Shirts'],
- 
 };
 
-// Previous work data
 const previousWork = [
-    { name: "High-Poly Road", image: "HighPoly1.png", category: "Building", type: "High-Poly" },
-    { name: "High-Poly Entrance", image: "HighPoly2.png", category: "Building", type: "High-Poly" },
-    { name: "High-Poly Entrance 2", image: "HighPoly3.png", category: "Building", type: "High-Poly" },
-    { name: "High-Poly Interior", image: "HighPoly4.png", category: "Building", type: "High-Poly" },
-    { name: "Medium-Poly Radio", image: "MediumPolyRadio.png", category: "UI Design", type: "Medium-Poly UI" },
-    { name: "Low-Poly Cave", image: "LowPolyCave.png", category: "Building", type: "Low-Poly" },
-    { name: "Low-Poly Cave Entrance", image: "LowPolyCaveEntrance.png", category: "Building", type: "Low-Poly" },
-    { name: "Low-Poly Map Design", image: "LowPolyMapDesign.png", category: "Building", type: "Low-Poly" },
-    { name: "Low-Poly Cabin", image: "LowPolyCabin.png", category: "Building", type: "Low-Poly" },
-    { name: "Low-Poly Snowman", image: "LowPolySnowMan.png", category: "Building", type: "Low-Poly" },
-    { name: "Low-Poly Cabin", image: "LowPolyRNGCabin.png", category: "Building", type: "Low-Poly" },
-    { name: "Low-Poly Map Design", image: "LowPolyRNGMapDesign.png", category: "Building", type: "Low-Poly" },
-    { name: "Low-Poly Cave Entrance", image: "LowPolyRNGCaveEntrance.png", category: "Building", type: "Low-Poly" },
-
+    { name: "High-Poly Road", Image: "HighPoly1.png", category: "Building", type: "High-Poly" },
+    { name: "High-Poly Entrance", Image: "HighPoly2.png", category: "Building", type: "High-Poly" },
+    { name: "High-Poly Entrance 2", Image: "HighPoly3.png", category: "Building", type: "High-Poly" },
+    { name: "High-Poly Interior", Image: "HighPoly4.png", category: "Building", type: "High-Poly" },
+    { name: "Medium-Poly Radio", Image: "MediumPolyRadio.png", category: "UI Design", type: "Medium-Poly UI" },
+    { name: "Low-Poly Cave", Image: "LowPolyCave.png", category: "Building", type: "Low-Poly" },
+    { name: "Low-Poly Cave Entrance", Image: "LowPolyCaveEntrance.png", category: "Building", type: "Low-Poly" },
+    { name: "Low-Poly Map Design", Image: "LowPolyMapDesign.png", category: "Building", type: "Low-Poly" },
+    { name: "Low-Poly Cabin", Image: "LowPolyCabin.png", category: "Building", type: "Low-Poly" },
+    { name: "Low-Poly Snowman", Image: "LowPolySnowMan.png", category: "Building", type: "Low-Poly" },
+    { name: "Low-Poly Cabin", Image: "LowPolyRNGCabin.png", category: "Building", type: "Low-Poly" },
+    { name: "Low-Poly Map Design", Image: "LowPolyRNGMapDesign.png", category: "Building", type: "Low-Poly" },
+    { name: "Low-Poly Cave Entrance", Image: "LowPolyRNGCaveEntrance.png", category: "Building", type: "Low-Poly" },
 ];
 
-// Commissions data
 const commissions = [
     {
         name: "Voice Control",
@@ -53,7 +47,6 @@ const commissions = [
     },
 ];
 
-// DOM elements for skills, commissions, and modal
 const skillsContainer = document.getElementById('skills-container');
 const commissionsContainer = document.getElementById('commissions-container');
 const loadMoreCommissionsBtn = document.getElementById('load-more-commissions');
@@ -71,7 +64,6 @@ const typeFilter = document.getElementById('type-filter');
 const galleryContainer = document.getElementById('previous-container');
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
-// Pagination for Commissions
 const commissionsPerPage = 4;
 let currentCommissionsPage = 1;
 
@@ -84,11 +76,11 @@ function loadCommissions(page) {
         const commissionItem = document.createElement('div');
         commissionItem.className = 'commission-item';
         commissionItem.innerHTML = `
-            <img src="images/${commission.logo}" alt="${commission.name}">
+            <img src="Images/${commission.logo}" alt="${commission.name}">
             <div class="commission-name">${commission.name}</div>
         `;
         commissionItem.addEventListener('click', () => showModal(commission));
-        commissionsContainer.appendChild(commissionItem); // Append to container
+        commissionsContainer.appendChild(commissionItem);
     });
 
     updateCommissionButtons();
@@ -111,14 +103,13 @@ loadMoreCommissionsBtn.addEventListener('click', () => {
 
 showLessCommissionsBtn.addEventListener('click', () => {
     currentCommissionsPage = 1;
-    commissionsContainer.innerHTML = ''; // Clear content ONLY when starting from page 1
-    loadCommissions(currentCommissionsPage); // Load initial commissions
+    commissionsContainer.innerHTML = '';
+    loadCommissions(currentCommissionsPage);
 });
 
-// Modal functionality for commissions
 function showModal(commission) {
     modalTitle.innerHTML = `<a href="${commission.link}" target="_blank">${commission.name}</a>`;
-    modalLogo.src = `images/${commission.logo}`;
+    modalLogo.src = `Images/${commission.logo}`;
     modalPayout.textContent = `Payout: ${commission.payout}`;
     modalDescription.textContent = commission.description;
 
@@ -138,7 +129,6 @@ window.onclick = function (event) {
     }
 };
 
-// Load Skills into the container
 skills.forEach(skill => {
     const skillBox = document.createElement('div');
     skillBox.className = 'skill-box';
@@ -149,7 +139,6 @@ skills.forEach(skill => {
     skillsContainer.appendChild(skillBox);
 });
 
-// Pagination for Previous Work
 const worksPerPage = 4;
 let currentWorkPage = 1;
 let filteredWork = [...previousWork];
@@ -163,11 +152,11 @@ function loadWork(page) {
         const workItem = document.createElement('div');
         workItem.className = 'work-item';
         workItem.innerHTML = `
-            <img src="images/${work.image}" alt="${work.name}" class="work-image">
+            <img src="Images/${work.Image}" alt="${work.name}" class="work-Image">
             <div class="work-name">${work.name}</div>
         `;
         workItem.querySelector('img').addEventListener('click', () => showWorkModal(work));
-        galleryContainer.appendChild(workItem); // Append to container without clearing
+        galleryContainer.appendChild(workItem);
     });
 
     updateWorkButtons();
@@ -190,11 +179,10 @@ loadMorePreviousBtn.addEventListener('click', () => {
 
 showLessPreviousBtn.addEventListener('click', () => {
     currentWorkPage = 1;
-    galleryContainer.innerHTML = ''; // Clear only when going back to page 1
-    loadWork(currentWorkPage); // Reload first four works
+    galleryContainer.innerHTML = '';
+    loadWork(currentWorkPage);
 });
 
-// Populate and filter Previous Work
 function loadPreviousWork() {
     Object.keys(categories).forEach(category => {
         const option = document.createElement('option');
@@ -212,7 +200,7 @@ function loadPreviousWork() {
 
     typeFilter.addEventListener('change', filterWork);
 
-    filterWork(); // Initial load of previous work based on filters
+    filterWork();
 }
 
 function updateTypeFilter(selectedCategory) {
@@ -236,16 +224,14 @@ function filterWork() {
         (selectedType === 'all' || work.type === selectedType)
     );
 
-    // Reset to first page and reload the displayed works
     currentWorkPage = 1; 
     galleryContainer.innerHTML = ''; 
     loadWork(currentWorkPage);
 }
 
-// Modal functionality for previous work
 function showWorkModal(work) {
     modalTitle.textContent = work.name;
-    modalLogo.src = `images/${work.image}`;
+    modalLogo.src = `Images/${work.Image}`;
     modalPayout.textContent = '';
     modalDescription.textContent = `Category: ${work.category}, Type: ${work.type}`;
 
@@ -253,6 +239,39 @@ function showWorkModal(work) {
     setTimeout(() => modal.classList.add('show'), 10);
 }
 
-// Initialize
+function animateOnScroll() {
+    const scrollElements = document.querySelectorAll('.scroll-animation');
+    
+    const observerOptions = {
+        threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            const target = entry.target;
+
+            if (entry.isIntersecting) {
+                target.classList.add('show');
+                target.classList.remove('hide');
+            } else {
+                target.classList.remove('show');
+                target.classList.add('hide');
+            }
+        });
+    }, observerOptions);
+
+    scrollElements.forEach((el) => observer.observe(el));
+}
+
+function addScrollAnimation() {
+    const workItems = document.querySelectorAll('.work-item');
+    const commissionItems = document.querySelectorAll('.commission-item');
+
+    workItems.forEach((item) => item.classList.add('scroll-animation'));
+    commissionItems.forEach((item) => item.classList.add('scroll-animation'));
+}
+
 loadCommissions(currentCommissionsPage);
-loadPreviousWork();
+loadPreviousWork(currentWorkPage);
+addScrollAnimation()
+animateOnScroll()
