@@ -26,9 +26,11 @@ function updateDots() {
         dot.x += dot.vx;
         dot.y += dot.vy;
 
+        // Bounce off edges
         if (dot.x < 0 || dot.x > canvas.width) dot.vx *= -1;
         if (dot.y < 0 || dot.y > canvas.height) dot.vy *= -1;
 
+        // Draw connecting lines
         for (let j = i + 1; j < dots.length; j++) {
             const dist = Math.hypot(dot.x - dots[j].x, dot.y - dots[j].y);
             if (dist < maxDistance) {
@@ -42,6 +44,11 @@ function updateDots() {
     }
     requestAnimationFrame(updateDots);
 }
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 
 createDots();
 updateDots();
