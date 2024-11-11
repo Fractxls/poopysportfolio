@@ -1,23 +1,15 @@
 const skills = [
-    { name: "Roblox Building", description: "Advanced proficiency in Low & High Poly Roblox building themes." },
-    { name: "Roblox UI Design", description: "Learning low-poly/medium-poly Graphical User Interface Design." },
-    { name: "Luau Programmer", description: "Learning/Indermediate Luau Programmer." },
-    { name: "Clothing Designer", description: "Learning/Indermediate Clothing Designer for the Roblox Platform.." },
+    { name: "Roblox Builder", description: "Advanced proficiency in Low & High Poly Roblox building themes." },
+    { name: "Roblox Terrain Artist", description: "Indermediate Roblox Environmental Artist." },
+    { name: "Experienced Studio Manager", description: "Expertise with managing/controlling a Studio or Development group." },
+
 ];
 
 const categories = {
-    'Building': ['Low-Poly', 'High-Poly', 'Environmental Design'],
-    'Scripting': ['Luau', 'Menu', 'Database', 'User Interface'],
-    'UI Design': ['Low-Poly UI', 'Medium-Poly UI'],
-    'Clothing Design': ['Staff Shirts', 'Plain Shirts'],
+    'Building': ['Low-Poly', 'Environmental Design'],
 };
 
 const previousWork = [
-    { name: "High-Poly Road", Image: "HighPoly1.png", category: "Building", type: "High-Poly" },
-    { name: "High-Poly Entrance", Image: "HighPoly2.png", category: "Building", type: "High-Poly" },
-    { name: "High-Poly Entrance 2", Image: "HighPoly3.png", category: "Building", type: "High-Poly" },
-    { name: "High-Poly Interior", Image: "HighPoly4.png", category: "Building", type: "High-Poly" },
-    { name: "Medium-Poly Radio", Image: "MediumPolyRadio.png", category: "UI Design", type: "Medium-Poly UI" },
     { name: "Low-Poly Cave", Image: "LowPolyCave.png", category: "Building", type: "Low-Poly" },
     { name: "Low-Poly Cave Entrance", Image: "LowPolyCaveEntrance.png", category: "Building", type: "Low-Poly" },
     { name: "Low-Poly Map Design", Image: "LowPolyMapDesign.png", category: "Building", type: "Low-Poly" },
@@ -33,7 +25,7 @@ const commissions = [
         name: "Voice Control",
         logo: "VoiceControl.png",
         payout: "200K Robux",
-        description: "Tasked with the building of World 3 for Voice Control & RunUp Studios",
+        description: "Tasked with the building of World 3 for Voice Control & RunUp Studios. - Collaborated with @Fractxls",
         tags: ["Building"],
         link: "https://www.roblox.com/games/17800309532/Voice-Control"
     },
@@ -41,7 +33,7 @@ const commissions = [
         name: "Al's RNG",
         logo: "AlsRNG.png",
         payout: "20K Robux",
-        description: "Tasked with building the main map for AL's Rng and GreenBey56's Studio.",
+        description: "Tasked with building the main map for AL's Rng and GreenBey56's Studio. - Collaborated with @Fractxls",
         tags: ["Building"],
         link: "https://www.roblox.com/games/16638124623/Als-RNG"
     },
@@ -273,5 +265,3 @@ function addScrollAnimation() {
 
 loadCommissions(currentCommissionsPage);
 loadPreviousWork(currentWorkPage);
-addScrollAnimation()
-animateOnScroll()
